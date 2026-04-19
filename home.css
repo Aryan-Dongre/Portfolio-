@@ -20,6 +20,7 @@ box-sizing:border-box;
 
 --sub-text:#5CB8E4;
 --border:white;
+--highlight:#ccc;
 
 }
 
@@ -36,7 +37,7 @@ box-sizing:border-box;
 --accent-color:#ff6600;
 
 --sub-text:#1a6fa0;
-
+--highlight:#000;
 --border:black;
 
 }
@@ -47,8 +48,14 @@ body{
 
 background:var(--bg-color);
 color:var(--text-color);
+overflow-x: hidden;
+font-family: Arial, Helvetica, sans-serif;
 transition:background 0.4s,color 0.4s;
 
+}
+
+section{
+  margin-top: 80px;
 }
 
 /* Navbar */
@@ -56,7 +63,11 @@ transition:background 0.4s,color 0.4s;
 .navbar{
 
 background:var(--bg-color);
+transition: 0.3s;
+}
 
+.nav-link {
+  position: relative;
 }
 
 .navbar a{
@@ -68,8 +79,6 @@ text-decoration:none;
 }
 
 .navbar a:hover{
-
-text-decoration:underline;
 color:var(--accent-color);
 
 }
@@ -141,13 +150,17 @@ transform:translateX(35px);
 
 /*HOME */
 
+#home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
 .profile-img{
 
 max-width:280px;
 border-radius:20px;
-
 border:2px solid var(--border);
-
 transition:0.4s;
 
 }
@@ -159,26 +172,39 @@ box-shadow:0 5px 20px rgba(255,255,255,0.2);
 
 }
 
-.text h1{
+.intro-text {
+  color: #D84040;
+  font-size: 55px;     
+  font-weight: 600;
+  margin-bottom: 5px;
+  animation:slideFromRight 3s ease forwards; 
+}
 
+.name-text{
 color:#D84040;
 font-size:30px;
-
 animation:slideFromRight 3s ease forwards;
 
 }
 
 .sub-text{
-
 color:var(--sub-text);
-
 font-size:20px;
-font-weight:500;
+font-weight:600;
+}
 
+.highlight-text {
+  color:var(--sub-text);
+  font-weight: 600;
+}
+
+.intro-desc {
+  color:var(--highlight);
+  font-size: 19px;
+  margin-top: 10px;
 }
 
 .typewriter{
-
 display:inline-block;
 overflow:hidden;
 
@@ -218,16 +244,12 @@ from,to{border-color:transparent;}
 
 font-size:28px;
 color:#DC5F00;
-
 margin-bottom:10px;
 
 }
-
 .btn-outline-warning{
-
 padding:8px 20px;
 font-size:14px;
-
 }
 
 /*About*/
@@ -621,6 +643,19 @@ transform:translateX(0);
 
 /*
 Responsive */
+@media (max-width: 576px) {
+    .intro-text {
+        font-size: 28px;
+    }
+
+    .name-text {
+        font-size: 32px;
+    }
+
+    .sub-text {
+        font-size: 14px;
+    }
+}
 
 @media(max-width:768px){
 
